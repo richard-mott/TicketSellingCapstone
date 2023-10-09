@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="C868.Capstone.Core.Views.Content.Reports.ReportsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:controls="clr-namespace:C868.Capstone.Core.Views.Controls"
+             xmlns:reports="clr-namespace:C868.Capstone.Core.Views.Content.Reports"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!-- Main Controls -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Report Selection -->
+                <GroupBox Grid.Row="0"
+                          Margin="{StaticResource Margin-Stack-Top}">
+                    <GroupBox.Header>
+                        <TextBlock Text="Select Report"
+                                   Margin="{StaticResource Margin-None}"/>
+                    </GroupBox.Header>
+
+                    <StackPanel>
+                        <ComboBox ItemsSource="{Binding Reports}"
+                                  SelectedItem="{Binding SelectedReport}"
+                                  DisplayMemberPath="Name" />
+
+                        <Button Content="Generate"
+                                Command="{Binding GenerateReportCommand}"
+                                HorizontalAlignment="Right" />
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Report Options -->
+                <reports:ReportOptionsView Grid.Row="1"
+                                           DataContext="{Binding Options}"
+                                           Margin="{StaticResource Margin-Stack-Bottom}" />
+            </Grid>
+
+            <!-- Results -->
+            <TextBox Grid.Column="1"
+                     Text="{Binding Results}"
+                     TextWrapping="NoWrap"
+                     IsReadOnly="True"
+                     FontFamily="Cascadia Code, Consolas, Courier New"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+        </Grid>
+
+        <controls:LoadingIndicator DataContext="{Binding}" />
+    </Grid>
+</UserControl>

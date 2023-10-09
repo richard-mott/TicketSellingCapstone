@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="C868.Capstone.Core.Views.Controls.LoadingIndicator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C868.Capstone.Core.Views.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!-- Dimming Overlay -->
+        <Grid Visibility="{Binding ShowProgress, Converter={StaticResource BooleanToVisibility}}"
+              Background="{StaticResource Brush-Vintage-Black}"
+              Opacity="0.5" />
+
+        <!-- Loading Indicator -->
+        <Grid Visibility="{Binding ShowProgress, Converter={StaticResource BooleanToVisibility}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="1"
+                    Style="{StaticResource Border-Loading}">
+                <StackPanel>
+                    <TextBlock Text="{Binding ProgressDescription}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="{StaticResource Margin-Stack-Top}" />
+                    <Grid>
+                        <ProgressBar IsIndeterminate="{Binding IsIndeterminate}"
+                                     Value="{Binding ProgressValue}"
+                                     Height="{StaticResource ProgressBar-Height}"
+                                     Margin="{StaticResource Margin-Stack-Bottom}" />
+                        <TextBlock Text="{Binding ProgressValue, StringFormat={}{0}%}"
+                                   Visibility="{Binding ShowPercentage, Converter={StaticResource BooleanToVisibility}}"
+                                   FontSize="{StaticResource Font-Size-Normal}"
+                                   TextAlignment="Center"
+                                   Margin="{StaticResource Margin-Stack-Bottom}"
+                                   Padding="{StaticResource Margin-None}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

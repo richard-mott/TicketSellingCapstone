@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8AF537FB-850A-44A9-9DF4-E80EDFA4D98F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>C868.Capstone</RootNamespace>
+    <AssemblyName>C868.Capstone</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IncludePackageReferencesDuringMarkupCompilation>true</IncludePackageReferencesDuringMarkupCompilation>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>tix.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommunityToolkit.Mvvm, Version=8.2.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommunityToolkit.Mvvm.8.2.1\lib\netstandard2.0\CommunityToolkit.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net, Version=1.8.116.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\sqlite-net-pcl.1.8.116\lib\netstandard2.0\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLiteNetExtensions.2.1.0\lib\netstandard1.1\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensionsAsync, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLiteNetExtensions.Async.2.1.0\lib\netstandard1.1\SQLiteNetExtensionsAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.4.976, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.4\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.4.976, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.0.4\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.nativelibrary, Version=2.0.4.976, Culture=neutral, PublicKeyToken=502ed628492ab262, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.4\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.4.976, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.4\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Core\Messages\Auditoriums.cs" />
+    <Compile Include="Core\Messages\DailyRecords.cs" />
+    <Compile Include="Core\Messages\Dialogs.cs" />
+    <Compile Include="Core\Messages\Movies.cs" />
+    <Compile Include="Core\Messages\Reports.cs" />
+    <Compile Include="Core\Messages\Selling.cs" />
+    <Compile Include="Core\Messages\ShowTimes.cs" />
+    <Compile Include="Core\Messages\Tickets.cs" />
+    <Compile Include="Core\Messages\TicketTypes.cs" />
+    <Compile Include="Core\Messages\Users.cs" />
+    <Compile Include="Core\Models\Activities\DailyRecord.cs" />
+    <Compile Include="Core\Models\Activities\LogEntry.cs" />
+    <Compile Include="Core\Reports\AllActivityLogsReport.cs" />
+    <Compile Include="Core\Reports\AllDailyRecordsReport.cs" />
+    <Compile Include="Core\Reports\Builders\ActivityLogReportBuilder.cs" />
+    <Compile Include="Core\Reports\ActivityLogByDateRangeReport.cs" />
+    <Compile Include="Core\Reports\Builders\DailyRecordReportBuilder.cs" />
+    <Compile Include="Core\Reports\Builders\ReportBuilder.cs" />
+    <Compile Include="Core\Reports\Builders\MovieSalesReportBuilder.cs" />
+    <Compile Include="Core\Reports\DailyRecordsByDateRangeReport.cs" />
+    <Compile Include="Core\Reports\ReportOptions.cs" />
+    <Compile Include="Core\Reports\SalesByDateRangeReport.cs" />
+    <Compile Include="Core\ViewModels\Content\Auditoriums\AuditoriumEditorViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Auditoriums\AuditoriumListViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Auditoriums\AuditoriumsViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\ContentViewModelBase.cs" />
+    <Compile Include="Core\ViewModels\Content\Movies\MovieEditorViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Movies\MovieListViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Selling\ShowViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Selling\TicketSelectorViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Selling\TransactionViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\TicketTypes\TicketTypeEditorViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\TicketTypes\TicketTypeListViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Users\UserEditorViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Users\UserListViewModel.cs" />
+    <Compile Include="Core\ViewModels\Controls\ScheduleViewerViewModel.cs" />
+    <Compile Include="Core\ViewModels\Data\AuditoriumViewModel.cs" />
+    <Compile Include="Core\ViewModels\Data\CloseDailyRecordViewModel.cs" />
+    <Compile Include="Core\ViewModels\Data\ShowTimeViewModel.cs" />
+    <Compile Include="Core\ViewModels\Data\TicketTypeViewModel.cs" />
+    <Compile Include="Core\ViewModels\Data\TicketViewModel.cs" />
+    <Compile Include="Core\ViewModels\Data\UserViewModel.cs" />
+    <Compile Include="Core\ViewModels\Dialogs\CloseDayDialogViewModel.cs" />
+    <Compile Include="Core\ViewModels\Dialogs\ErrorDialogViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Movies\MoviesViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Reports\ReportsViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Selling\SellingViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\ShowTimes\ShowTimesViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\TicketTypes\TicketTypesViewModel.cs" />
+    <Compile Include="Core\ViewModels\Content\Users\UsersViewModel.cs" />
+    <Compile Include="Core\ViewModels\Data\MovieViewModel.cs" />
+    <Compile Include="Core\ViewModels\Dialogs\DialogViewModel.cs" />
+    <Compile Include="Core\ViewModels\Dialogs\LogInDialogViewModel.cs" />
+    <Compile Include="Core\ViewModels\Dialogs\ConfirmDialogViewModel.cs" />
+    <Compile Include="Core\ViewModels\IDataLoader.cs" />
+    <Compile Include="Core\ViewModels\MainToolbarViewModel.cs" />
+    <Compile Include="Core\ViewModels\MainViewModel.cs" />
+    <Compile Include="Core\Reports\AllSalesReport.cs" />
+    <Compile Include="Core\Reports\IReport.cs" />
+    <Compile Include="Core\Views\Content\Auditoriums\AuditoriumEditorView.xaml.cs">
+      <DependentUpon>AuditoriumEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Auditoriums\AuditoriumListView.xaml.cs">
+      <DependentUpon>AuditoriumListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Auditoriums\AuditoriumsView.xaml.cs">
+      <DependentUpon>AuditoriumsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Movies\MovieEditorView.xaml.cs">
+      <DependentUpon>MovieEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Movies\MovieListView.xaml.cs">
+      <DependentUpon>MovieListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Reports\ReportOptionsView.xaml.cs">
+      <DependentUpon>ReportOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Selling\SellingView.xaml.cs">
+      <DependentUpon>SellingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Selling\TicketSelectorView.xaml.cs">
+      <DependentUpon>TicketSelectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Selling\TransactionView.xaml.cs">
+      <DependentUpon>TransactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\TicketTypes\TicketTypeEditorView.xaml.cs">
+      <DependentUpon>TicketTypeEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\TicketTypes\TicketTypeListView.xaml.cs">
+      <DependentUpon>TicketTypeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Users\UserEditorView.xaml.cs">
+      <DependentUpon>UserEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Users\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Controls\AuditoriumDisplay.xaml.cs">
+      <DependentUpon>AuditoriumDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Controls\LoadingIndicator.xaml.cs">
+      <DependentUpon>LoadingIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Controls\ShowTimeDisplay.xaml.cs">
+      <DependentUpon>ShowTimeDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Controls\ScheduleSeparator.xaml.cs">
+      <DependentUpon>ScheduleSeparator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Controls\ScheduleViewer.xaml.cs">
+      <DependentUpon>ScheduleViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Controls\TimeDisplay.xaml.cs">
+      <DependentUpon>TimeDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Converters\NullableBoolToVisibilityConverter.cs" />
+    <Compile Include="Core\Views\Data\CloseDailyRecordView.xaml.cs">
+      <DependentUpon>CloseDailyRecordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Dialogs\CloseDayDialogView.xaml.cs">
+      <DependentUpon>CloseDayDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Dialogs\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Dialogs\ErrorDialogView.xaml.cs">
+      <DependentUpon>ErrorDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Dialogs\LogInDialogView.xaml.cs">
+      <DependentUpon>LogInDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Movies\MoviesView.xaml.cs">
+      <DependentUpon>MoviesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Reports\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\ShowTimes\ShowTimesView.xaml.cs">
+      <DependentUpon>ShowTimesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\TicketTypes\TicketTypesView.xaml.cs">
+      <DependentUpon>TicketTypesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Content\Users\UsersView.xaml.cs">
+      <DependentUpon>UsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Dialogs\ConfirmDialogView.xaml.cs">
+      <DependentUpon>ConfirmDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Views\Converters\DoubleToObjectConverter.cs" />
+    <Compile Include="Core\Views\MainToolbarView.xaml.cs">
+      <DependentUpon>MainToolbarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Data\IDataService.cs" />
+    <Compile Include="Services\Data\IDataService_Auditoriums.cs" />
+    <Compile Include="Services\Data\IDataService_DailyRecords.cs" />
+    <Compile Include="Services\Data\IDataService_LogEntries.cs" />
+    <Compile Include="Services\Data\IDataService_Movies.cs" />
+    <Compile Include="Services\Data\IDataService_ShowTimes.cs" />
+    <Compile Include="Services\Data\IDataService_Tickets.cs" />
+    <Compile Include="Services\Data\IDataService_TicketTypes.cs" />
+    <Compile Include="Services\Data\IDataService_Users.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_Auditoriums.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_DailyRecords.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_LogEntries.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_Movies.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_ShowTimes.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_Tickets.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_TicketTypes.cs" />
+    <Compile Include="Services\Data\Sample\SampleDataService_Users.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_Auditoriums.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_DailyRecords.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_LogEntries.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_Movies.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_ShowTimes.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_Tickets.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_TicketTypes.cs" />
+    <Compile Include="Services\Data\SQLite\SQLiteDataService_Users.cs" />
+    <Compile Include="Services\ContentService.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\IContentService.cs" />
+    <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\Logging\ILoggingService.cs" />
+    <Compile Include="Services\Logging\SQLiteLoggingService.cs" />
+    <Compile Include="Services\Payment\MockCashPaymentProcessor.cs" />
+    <Compile Include="Services\Payment\MockCreditPaymentProcessor.cs" />
+    <Compile Include="Services\Payment\IPaymentProcessor.cs" />
+    <Compile Include="Services\Payment\MockCheckPaymentProcessor.cs" />
+    <Page Include="AppResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Auditoriums\AuditoriumEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Auditoriums\AuditoriumListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Auditoriums\AuditoriumsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Movies\MovieEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Movies\MovieListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Reports\ReportOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Selling\SellingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Selling\TicketSelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Selling\TransactionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\TicketTypes\TicketTypeEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\TicketTypes\TicketTypeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Users\UserEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Users\UserListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Controls\AuditoriumDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Controls\LoadingIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Controls\ShowTimeDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Controls\ScheduleSeparator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Controls\ScheduleViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Controls\TimeDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Data\CloseDailyRecordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Dialogs\CloseDayDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Dialogs\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Dialogs\ErrorDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Dialogs\LogInDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Movies\MoviesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Reports\ReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\ShowTimes\ShowTimesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\TicketTypes\TicketTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Content\Users\UsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\Dialogs\ConfirmDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Core\Views\MainToolbarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\AppSettings.cs" />
+    <Compile Include="Core\Enums.cs" />
+    <Compile Include="Core\Models\Data\Auditorium.cs" />
+    <Compile Include="Core\Models\Data\Movie.cs" />
+    <Compile Include="Core\Models\Data\ShowTime.cs" />
+    <Compile Include="Core\Models\Data\Ticket.cs" />
+    <Compile Include="Core\Models\Data\TicketType.cs" />
+    <Compile Include="Core\Models\Data\User.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ModelClassDiagram.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Attribution.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Close.png" />
+    <Resource Include="Icons\LogIn.png" />
+    <Resource Include="Icons\LogOut.png" />
+    <Resource Include="Icons\Movies.png" />
+    <Resource Include="Icons\Open.png" />
+    <Resource Include="Icons\Reports.png" />
+    <Resource Include="Icons\ShowTimes.png" />
+    <Resource Include="Icons\TicketTypes.png" />
+    <Resource Include="Icons\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Selling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Error.png" />
+    <Resource Include="Icons\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Auditoriums.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tix.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ClearSearch.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
+    <Error Condition="!Exists('..\packages\CommunityToolkit.Mvvm.8.2.1\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CommunityToolkit.Mvvm.8.2.1\build\netstandard2.0\CommunityToolkit.Mvvm.targets'))" />
+  </Target>
+  <Import Project="..\packages\CommunityToolkit.Mvvm.8.2.1\build\netstandard2.0\CommunityToolkit.Mvvm.targets" Condition="Exists('..\packages\CommunityToolkit.Mvvm.8.2.1\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" />
+</Project>

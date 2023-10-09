@@ -1,0 +1,258 @@
+﻿<UserControl x:Class="C868.Capstone.Core.Views.Data.CloseDailyRecordView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Background="{StaticResource Brush-Vintage-White}">
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="{Binding Date, StringFormat='Close Day {0:d}', FallbackValue='Close Day'}"
+                   FontSize="{StaticResource Font-Size-Large}"
+                   FontWeight="Bold"
+                   TextAlignment="Center" />
+
+        <Separator Grid.Row="1" />
+
+        <!-- Cash Totals -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" SharedSizeGroup="Value" MinWidth="150" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Expected Cash -->
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Expected Cash: "
+                       TextAlignment="Right" />
+            <Border Grid.Row="0" Grid.Column="1"
+                    BorderBrush="{StaticResource Brush-Vintage-Black}"
+                    BorderThickness="{StaticResource Border-Thickness-Small}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding CashExpected, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           TextAlignment="Right"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+
+            <!-- Actual Cash -->
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="Actual Cash: "
+                       TextAlignment="Right" />
+            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding CashActual, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                     TextAlignment="Right" />
+
+            <!-- Over/Under -->
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Over/Under: "
+                       TextAlignment="Right" />
+            <Border Grid.Row="2" Grid.Column="1"
+                    BorderBrush="{Binding CashDifference, Converter={StaticResource DoubleToBrush}}"
+                    BorderThickness="{StaticResource Border-Thickness-Small}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding CashDifference, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           Foreground="{Binding CashDifference, Converter={StaticResource DoubleToBrush}}"
+                           TextAlignment="Right"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+        </Grid>
+
+        <Separator Grid.Row="3" />
+
+        <!-- Credit Totals -->
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" SharedSizeGroup="Value" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Expected Credit -->
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Expected Credit: "
+                       TextAlignment="Right" />
+            <Border Grid.Row="0" Grid.Column="1"
+                    BorderBrush="{StaticResource Brush-Vintage-Black}"
+                    BorderThickness="{StaticResource Border-Thickness-Small}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding CreditExpected, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           TextAlignment="Right"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+
+            <!-- Actual Credit -->
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="Actual Credit: "
+                       TextAlignment="Right" />
+            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding CreditActual, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                     TextAlignment="Right" />
+
+            <!-- Over/Under -->
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Over/Under: "
+                       TextAlignment="Right" />
+            <Border Grid.Row="2" Grid.Column="1"
+                    BorderBrush="{Binding CreditDifference, Converter={StaticResource DoubleToBrush}}"
+                    BorderThickness="{StaticResource Border-Thickness-Small}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding CreditDifference, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           Foreground="{Binding CreditDifference, Converter={StaticResource DoubleToBrush}}"
+                           TextAlignment="Right"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+        </Grid>
+
+        <Separator Grid.Row="5" />
+
+        <!-- Check Totals -->
+        
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" SharedSizeGroup="Value" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Expected Check -->
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Expected Check: "
+                       TextAlignment="Right" />
+            <Border Grid.Row="0" Grid.Column="1"
+                    BorderBrush="{StaticResource Brush-Vintage-Black}"
+                    BorderThickness="{StaticResource Border-Thickness-Small}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding CheckExpected, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           TextAlignment="Right"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+
+            <!-- Actual Check -->
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="Actual Check: "
+                       TextAlignment="Right" />
+            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding CheckActual, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                     TextAlignment="Right" />
+
+            <!-- Over/Under -->
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Over/Under: "
+                       TextAlignment="Right" />
+            <Border Grid.Row="2" Grid.Column="1"
+                    BorderBrush="{Binding CheckDifference, Converter={StaticResource DoubleToBrush}}"
+                    BorderThickness="{StaticResource Border-Thickness-Small}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding CheckDifference, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           Foreground="{Binding CheckDifference, Converter={StaticResource DoubleToBrush}}"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}"
+                           TextAlignment="Right" />
+            </Border>
+        </Grid>
+
+        <Separator Grid.Row="7" />
+
+        <!-- Grand Totals -->
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" SharedSizeGroup="Value" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Expected Total -->
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Expected Total: "
+                       TextAlignment="Right"
+                       FontWeight="Bold" />
+            <Border Grid.Row="0" Grid.Column="1"
+                    BorderBrush="{StaticResource Brush-Vintage-Black}"
+                    BorderThickness="{StaticResource Border-Thickness-Normal}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding TotalExpected, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           TextAlignment="Right"
+                           FontWeight="Bold"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+
+            <!-- Actual Total -->
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="Actual Total: "
+                       TextAlignment="Right"
+                       FontWeight="Bold" />
+            <Border Grid.Row="1" Grid.Column="1"
+                    BorderBrush="{StaticResource Brush-Vintage-Black}"
+                    BorderThickness="{StaticResource Border-Thickness-Normal}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding TotalActual, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           TextAlignment="Right"
+                           FontWeight="Bold"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+
+            <!-- Over/Under -->
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Over/Under: "
+                       TextAlignment="Right"
+                       FontWeight="Bold" />
+            <Border Grid.Row="2" Grid.Column="1"
+                    BorderBrush="{Binding TotalDifference, Converter={StaticResource DoubleToBrush}}"
+                    BorderThickness="{StaticResource Border-Thickness-Normal}"
+                    Margin="{StaticResource Margin-Normal}"
+                    Padding="{StaticResource Margin-Normal}">
+                <TextBlock Text="{Binding TotalDifference, StringFormat='#,##0.00 ;(#,##0.00)'}"
+                           Foreground="{Binding TotalDifference, Converter={StaticResource DoubleToBrush}}"
+                           TextAlignment="Right"
+                           FontWeight="Bold"
+                           Margin="{StaticResource Margin-None}"
+                           Padding="{StaticResource Padding-None}" />
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

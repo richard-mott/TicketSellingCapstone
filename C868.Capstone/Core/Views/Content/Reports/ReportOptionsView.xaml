@@ -1,0 +1,108 @@
+﻿<GroupBox x:Class="C868.Capstone.Core.Views.Content.Reports.ReportOptionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C868.Capstone.Core.Views.Content.Reports"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             BorderBrush="{StaticResource Brush-Vintage-Black}"
+             BorderThickness="{StaticResource Border-Thickness-Normal}">
+    <GroupBox.Header>
+        <TextBlock Text="Report Options"
+                   Margin="{StaticResource Margin-None}"/>
+    </GroupBox.Header>
+
+    <StackPanel Grid.IsSharedSizeScope="True">
+
+        <!-- Movie -->
+        <Grid Visibility="{Binding RequiresMovie, Converter={StaticResource BooleanToVisibility}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Description" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="Movie: " />
+            <ComboBox Grid.Column="1"
+                      ItemsSource="{Binding Movies}"
+                      SelectedItem="{Binding Movie}" />
+        </Grid>
+
+        <Separator Visibility="{Binding RequiresMovie, Converter={StaticResource BooleanToVisibility}}" />
+
+        <!-- Date -->
+        <Grid Visibility="{Binding RequiresDate, Converter={StaticResource BooleanToVisibility}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Description" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="Date: " />
+            <xctk:DateTimePicker Grid.Column="1"
+                                 Value="{Binding Date}"
+                                 Format="ShortDate" />
+        </Grid>
+
+        <Separator Visibility="{Binding RequiresDate, Converter={StaticResource BooleanToVisibility}}" />
+
+        <!-- Start Date -->
+        <Grid Visibility="{Binding RequiresDateRange, Converter={StaticResource BooleanToVisibility}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Description" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="Start Date: " />
+            <xctk:DateTimePicker Grid.Column="1"
+                                 Value="{Binding StartDate}"
+                                 Format="ShortDate" />
+        </Grid>
+
+        <!-- End Date -->
+        <Grid Visibility="{Binding RequiresDateRange, Converter={StaticResource BooleanToVisibility}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Description" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="End Date: " />
+            <xctk:DateTimePicker Grid.Column="1"
+                                 Value="{Binding EndDate}"
+                                 Format="ShortDate" />
+        </Grid>
+
+        <Separator Visibility="{Binding RequiresDateRange, Converter={StaticResource BooleanToVisibility}}" />
+        
+        <!-- Log Message Types -->
+        <Grid Visibility="{Binding RequiresLogMessageTypes, Converter={StaticResource BooleanToVisibility}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <CheckBox Grid.Row="0"
+                      IsChecked="{Binding IncludeInfo}">
+                <TextBlock Text="Include Info"
+                           Margin="{StaticResource Margin-LeftRight}" />
+            </CheckBox>
+            <CheckBox Grid.Row="1"
+                      IsChecked="{Binding IncludeWarnings}">
+                <TextBlock Text="Include Warnings"
+                           Margin="{StaticResource Margin-LeftRight}" />
+            </CheckBox>
+            <CheckBox Grid.Row="2"
+                      IsChecked="{Binding IncludeErrors}">
+                <TextBlock Text="Include Errors"
+                           Margin="{StaticResource Margin-LeftRight}" />
+            </CheckBox>
+        </Grid>
+
+        <Separator Visibility="{Binding RequiresLogMessageTypes, Converter={StaticResource BooleanToVisibility}}" />
+    </StackPanel>
+</GroupBox>

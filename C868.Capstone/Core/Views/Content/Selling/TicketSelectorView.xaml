@@ -1,0 +1,294 @@
+﻿<UserControl x:Class="C868.Capstone.Core.Views.Content.Selling.TicketSelectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C868.Capstone.Core.Views.Content.Selling"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Padding="{StaticResource Padding-Normal}">
+    
+    <DockPanel>
+        <!-- Movie Details -->
+        <GroupBox DockPanel.Dock="Bottom"
+                  Padding="{StaticResource Padding-None}">
+            <GroupBox.Header>
+                <TextBlock Text="{Binding SelectedMovie.Name, FallbackValue='Movie Details'}"
+                           Margin="{StaticResource Margin-None}" />
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="1.5*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Movie Info -->
+                <Grid x:Name="MovieInfo"
+                      Grid.Column="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Rating -->
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                   Text="Rating: "
+                                   Margin="{StaticResource Margin-Stack-Top-Small}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1"
+                                   Text="{Binding SelectedMovie.Rating}"
+                                   Margin="{StaticResource Margin-Stack-Top}" />
+
+                        <!-- Run Time -->
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                                   Text="Run Time: "
+                                   Margin="{StaticResource Margin-Stack-Middle}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                                   Text="{Binding SelectedMovie.RunTime}"
+                                   Margin="{StaticResource Margin-Stack-Middle}" />
+
+                        <!-- Start Time -->
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                                   Text="Start Time: "
+                                   Margin="{StaticResource Margin-Stack-Middle}" />
+                        <TextBlock Grid.Row="2" Grid.Column="1"
+                                   Text="{Binding SelectedShowTime.StartTime, StringFormat=t}"
+                                   Margin="{StaticResource Margin-Stack-Middle}" />
+
+                        <!-- End Time -->
+                        <TextBlock Grid.Row="3" Grid.Column="0"
+                                   Text="End Time: "
+                                   Margin="{StaticResource Margin-Stack-Bottom}" />
+                        <TextBlock Grid.Row="3" Grid.Column="1"
+                                   Text="{Binding SelectedShowTime.EndTime, StringFormat=t}"
+                                   Margin="{StaticResource Margin-Stack-Middle}" />
+                    </Grid>
+                </Grid>
+
+                <!-- Cast -->
+                <DockPanel Grid.Column="1"
+                           Height="{Binding ActualHeight, ElementName=MovieInfo}">
+                    <TextBlock DockPanel.Dock="Top"
+                               Text="Cast"
+                               Margin="{StaticResource Margin-Stack-Top}"/>
+                    <TextBox Text="{Binding SelectedMovie.Cast}"
+                             TextWrapping="Wrap"
+                             IsReadOnly="True"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             Margin="{StaticResource Margin-Stack-Bottom}" />
+                </DockPanel>
+
+                <!-- Description -->
+                <DockPanel Grid.Column="2"
+                           Height="{Binding ActualHeight, ElementName=MovieInfo}">
+                    <TextBlock DockPanel.Dock="Top"
+                               Text="Description"
+                               Margin="{StaticResource Margin-Stack-Top}" />
+                    <TextBox Text="{Binding SelectedMovie.Description}"
+                             TextWrapping="Wrap"
+                             IsReadOnly="True"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             Margin="{StaticResource Margin-Stack-Bottom}" />
+                </DockPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- Ticket Selection -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Movie List -->
+            <ListView Grid.Column="0"
+                      ItemsSource="{Binding Movies}"
+                      SelectedItem="{Binding SelectedMovie}"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      Background="{StaticResource Brush-Vintage-White}"
+                      BorderBrush="{StaticResource Brush-Vintage-Black}"
+                      BorderThickness="{StaticResource Border-Thickness-Normal}"
+                      Margin="{StaticResource Margin-RightOnly}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton GroupName="Movies"
+                                     IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}}"
+                                     Style="{StaticResource {x:Type ToggleButton}}"
+                                     HorizontalAlignment="Stretch"
+                                     HorizontalContentAlignment="Stretch"
+                                     Height="{StaticResource Content-SellingHeight}"
+                                     Margin="{StaticResource Margin-Stack-Middle}"
+                                     Padding="{StaticResource Padding-Normal}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
+                                        BorderThickness="{StaticResource Border-Thickness-Small}"
+                                        BorderBrush="{StaticResource Brush-Vintage-Blue}"
+                                        Background="{StaticResource Brush-Vintage-White}"
+                                        Width="{StaticResource Content-RatingWidth}"
+                                        Margin="{StaticResource Margin-None}">
+                                    <TextBlock Text="{Binding Rating}"
+                                               FontSize="{StaticResource Font-Size-Large}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" />
+                                </Border>
+                                <TextBlock Grid.Row="0" Grid.Column="0"
+                                           Text="{Binding Name}"
+                                           TextTrimming="CharacterEllipsis"
+                                           Margin="{StaticResource Margin-Stack-Top-Small}"
+                                           Padding="{StaticResource Padding-None}" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding RunTime, StringFormat={}{0} mins}"
+                                           FontSize="{StaticResource Font-Size-Small}"
+                                           Margin="{StaticResource Margin-Stack-Bottom-Small}"
+                                           Padding="{StaticResource Padding-None}" />
+                            </Grid>
+                        </RadioButton>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+
+            <!-- Show Time List -->
+            <ListView Grid.Column="1"
+                      ItemsSource="{Binding Shows}"
+                      SelectedItem="{Binding SelectedShow}"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      Background="{StaticResource Brush-Vintage-White}"
+                      BorderBrush="{StaticResource Brush-Vintage-Black}"
+                      BorderThickness="{StaticResource Border-Thickness-Normal}"
+                      Margin="{StaticResource Margin-LeftRight}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton GroupName="ShowTimes"
+                                     IsChecked="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}}"
+                                     Style="{StaticResource {x:Type ToggleButton}}"
+                                     HorizontalAlignment="Stretch"
+                                     HorizontalContentAlignment="Stretch"
+                                     Height="{StaticResource Content-SellingHeight}"
+                                     Margin="{StaticResource Margin-Stack-Middle}"
+                                     Padding="{StaticResource Padding-Normal}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                                        BorderThickness="{StaticResource Border-Thickness-Small}"
+                                        BorderBrush="{StaticResource Brush-Vintage-Blue}"
+                                        Background="{StaticResource Brush-Vintage-White}"
+                                        Width="{StaticResource Content-TimeWidth}"
+                                        Margin="{StaticResource Margin-RightOnly}">
+                                    <TextBlock Text="{Binding StartTime, StringFormat={}{0:t}}"
+                                               FontSize="{StaticResource Font-Size-Large}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" />
+                                </Border>
+                                <TextBlock Grid.Row="0" Grid.Column="1"
+                                           Text="{Binding Auditorium.Name}"
+                                           TextTrimming="CharacterEllipsis"
+                                           Margin="{StaticResource Margin-Stack-Top-Small}"
+                                           Padding="{StaticResource Padding-None}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1"
+                                           Text="{Binding AvailableSeating}"
+                                           FontSize="{StaticResource Font-Size-Small}"
+                                           Margin="{StaticResource Margin-Stack-Bottom-Small}"
+                                           Padding="{StaticResource Padding-None}" />
+                            </Grid>
+                        </RadioButton>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+
+            <!-- Ticket Type List -->
+            <ListView Grid.Column="2"
+                      ItemsSource="{Binding TicketTypes}"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      Background="{StaticResource Brush-Vintage-White}"
+                      BorderBrush="{StaticResource Brush-Vintage-Black}"
+                      BorderThickness="{StaticResource Border-Thickness-Normal}"
+                      HorizontalContentAlignment="Stretch"
+                      Margin="{StaticResource Margin-LeftOnly}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Style="{DynamicResource Button-Selling}"
+                                Command="{Binding DataContext.AddTicketCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                CommandParameter="{Binding}">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"
+                                           TextTrimming="CharacterEllipsis"
+                                           TextAlignment="Center"
+                                           Margin="{StaticResource Margin-Stack-Top-Small}"
+                                           Padding="{StaticResource Padding-None}" />
+                                <TextBlock Text="{Binding Price, StringFormat=C}"
+                                           FontSize="{StaticResource Font-Size-Large}"
+                                           FontWeight="Bold"
+                                           TextAlignment="Center"
+                                           Margin="{StaticResource Margin-Stack-Bottom-Small}"
+                                           Padding="{StaticResource Padding-None}" />
+                            </StackPanel>
+                        </Button>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Grid>
+    </DockPanel>
+</UserControl>

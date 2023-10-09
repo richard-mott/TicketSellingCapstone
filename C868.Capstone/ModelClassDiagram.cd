@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="C868.Capstone.Core.Models.Data.Ticket">
+    <Position X="1.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAIAAAAQBAAAAABQAAAEAEAAQABA=</HashCode>
+      <FileName>Core\Models\Data\Ticket.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ShowTime" />
+      <Property Name="TicketType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="C868.Capstone.Core.Models.Data.ShowTime">
+    <Position X="5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAABAAAIQAgAAQAACAAAAAQABA=</HashCode>
+      <FileName>Core\Models\Data\ShowTime.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Auditorium" />
+      <Property Name="Movie" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="C868.Capstone.Core.Models.Data.TicketType">
+    <Position X="1.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAgAAAAQBIwAgAAQAAAAAAAAAABA=</HashCode>
+      <FileName>Core\Models\Data\TicketType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C868.Capstone.Core.Models.Data.Auditorium">
+    <Position X="5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAQCAAAAAAQAAAAAAAAAABA=</HashCode>
+      <FileName>Core\Models\Data\Auditorium.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C868.Capstone.Core.Models.Data.Movie">
+    <Position X="8.25" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAgAAAAAAAAAAwAAQAAAAUAAAAAAAAAABA=</HashCode>
+      <FileName>Core\Models\Data\Movie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C868.Capstone.Core.Models.Data.User">
+    <Position X="1.75" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAACAQCAQAAAAAAABA=</HashCode>
+      <FileName>Core\Models\Data\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C868.Capstone.Core.Models.Activities.DailyRecord">
+    <Position X="5" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAEgAAAQAAAAAEAEAAAABQAEBAAAAAAACA=</HashCode>
+      <FileName>Core\Models\Activities\DailyRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C868.Capstone.Core.Models.Activities.LogEntry">
+    <Position X="8.25" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgBAAAAAAAAAAAAAAAAAAgAAAAAAAQAAQAAIAAAAAA=</HashCode>
+      <FileName>Core\Models\Activities\LogEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

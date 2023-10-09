@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="C868.Capstone.Core.Views.Dialogs.LogInDialogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             Background="{StaticResource Brush-Vintage-White}"
+             Padding="{StaticResource Padding-Normal}"
+             Width="700">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=UserNameInput}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- User Name -->
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                   Text="User Name:" />
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 x:Name="UserNameInput"
+                 Text="{Binding Path=UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 IsTabStop="True"
+                 Focusable="True" />
+        
+        <!-- User Name Errors -->
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="{Binding UserNameError}"
+                   Style="{DynamicResource TextBlock-Error}" />
+
+        <!-- Password -->
+        <TextBlock Grid.Row="2" Grid.Column="0"
+                   Text="Password:"  />
+        <PasswordBox Grid.Row="2" Grid.Column="1"
+                     x:Name="PasswordInput"
+                     IsTabStop="True"
+                     Focusable="True" />
+        
+        <!-- Password Errors -->
+        <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="{Binding PasswordError}"
+                   Style="{DynamicResource TextBlock-Error}" />
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="4" Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Command="{Binding OKCommand}"
+                    Click="OkButton_Click"
+                    IsDefault="True"
+                    Content="OK" />
+            <Button Command="{Binding CancelCommand}"
+                    IsCancel="True"
+                    Content="Cancel" />
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,62 @@
+﻿ICON ATTRIBUTION
+---------------------------------------------------------------------------------------------------
+ICON NAME: Auditoriums.png
+SOURCE: Icon created by Freepik - Flatiron
+SOURCE URL: https://www.flaticon.com/free-icons/waiting-room
+---------------------------------------------------------------------------------------------------
+ICON NAME: ClearSearch.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/error
+---------------------------------------------------------------------------------------------------
+ICON NAME: Close.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/close
+---------------------------------------------------------------------------------------------------
+ICON NAME: Error.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/caution
+---------------------------------------------------------------------------------------------------
+ICON NAME: LogIn.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/entrance
+---------------------------------------------------------------------------------------------------
+ICON NAME: LogOut.png
+SOURCE: Icon created by Freepik - Flation
+SOURCE URL: https://www.flaticon.com/free-icons/exit
+---------------------------------------------------------------------------------------------------
+ICON NAME: Movies.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/cinema
+---------------------------------------------------------------------------------------------------
+ICON NAME: Open.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/open
+---------------------------------------------------------------------------------------------------
+ICON NAME: Reports.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/business-and-finance
+---------------------------------------------------------------------------------------------------
+ICON NAME: Search.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/search
+---------------------------------------------------------------------------------------------------
+ICON NAME: Selling.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/cash
+---------------------------------------------------------------------------------------------------
+ICON NAME: ShowTimes.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/time
+---------------------------------------------------------------------------------------------------
+ICON NAME: TicketTypes.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/movie-tickets
+---------------------------------------------------------------------------------------------------
+ICON NAME: Users.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/user
+---------------------------------------------------------------------------------------------------
+ICON NAME: Warning.png
+SOURCE: Icon created by Freepik - Flaticon
+SOURCE URL: https://www.flaticon.com/free-icons/error
+---------------------------------------------------------------------------------------------------

@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="C868.Capstone.Core.Views.MainToolbarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C868.Capstone.Core.Views"
+             mc:Ignorable="d">
+
+    <StackPanel Background="{StaticResource Brush-Vintage-Blue}">
+        <ToolBar ToolBarTray.IsLocked="True"
+                 Background="{StaticResource Brush-Vintage-Blue}"
+                 Padding="{StaticResource Padding-Normal}"
+                 Loaded="ToolBar_OnLoaded">
+
+            <ToolBar.Resources>
+                <Style x:Key="{x:Static ToolBar.ButtonStyleKey}" TargetType="Button">
+                    <Setter Property="ToolBar.OverflowMode" Value="Never" />
+                    <Setter Property="BorderBrush" Value="{StaticResource Brush-Vintage-Black}" />
+                    <Setter Property="BorderThickness" Value="{StaticResource Border-Thickness-Normal}" />
+                    <Setter Property="Background" Value="{StaticResource Brush-Vintage-White}" />
+                    <Setter Property="Height" Value="{StaticResource Toolbar-Button-Height}" />
+                    <Setter Property="Width" Value="{StaticResource Toolbar-Button-Width}" />
+                    <Setter Property="Margin" Value="{StaticResource Margin-Normal}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="ButtonBorder"
+                                        SnapsToDevicePixels="true"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter x:Name="Presenter"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="ButtonBorder" Value="{StaticResource Brush-Vintage-Blue}"/>
+                                        <Setter Property="Background" TargetName="ButtonBorder" Value="{StaticResource Brush-Vintage-Green}" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" TargetName="Presenter" Value="0.25" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="Image">
+                    <Setter Property="Height" Value="{StaticResource Toolbar-Icon-Height}" />
+                    <Setter Property="Width" Value="{StaticResource Toolbar-Icon-Width}" />
+                </Style>
+
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="{StaticResource Font-Size-Small}" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+
+                <Style x:Key="{x:Static ToolBar.SeparatorStyleKey}" TargetType="Separator">
+                    <Setter Property="BorderBrush" Value="{StaticResource Brush-Vintage-White}" />
+                    <Setter Property="BorderThickness" Value="{StaticResource Border-Thickness-Small}" />
+                </Style>
+
+            </ToolBar.Resources>
+
+            <!-- Log In/Out Button -->
+            <Button Command="{Binding LogInOutCommand}">
+                <StackPanel>
+                    <Image Source="{Binding LogInOutButtonIcon}" />
+                    <TextBlock Text="{Binding LogInOutButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <Separator />
+
+            <!-- Open/Close Button -->
+            <Button Command="{Binding OpenCloseCommand}">
+                <StackPanel>
+                    <Image Source="{Binding OpenCloseButtonIcon}" />
+                    <TextBlock Text="{Binding OpenCloseButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <!-- Selling Button -->
+            <Button Command="{Binding SellingCommand}">
+                <StackPanel>
+                    <Image Source="{Binding SellingButtonIcon}" />
+                    <TextBlock Text="{Binding SellingButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <!-- Reports Button -->
+            <Button Command="{Binding ReportsCommand}">
+                <StackPanel>
+                    <Image Source="{Binding ReportsButtonIcon}" />
+                    <TextBlock Text="{Binding ReportsButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <Separator />
+
+            <!-- Show Times Button -->
+            <Button Command="{Binding ShowTimesCommand}">
+                <StackPanel>
+                    <Image Source="{Binding ShowTimesButtonIcon}" />
+                    <TextBlock Text="{Binding ShowTimesButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <!-- Auditoriums Button -->
+            <Button Command="{Binding AuditoriumsCommand}">
+                <StackPanel>
+                    <Image Source="{Binding AuditoriumsButtonIcon}" />
+                    <TextBlock Text="{Binding AuditoriumsButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <!-- Movies Button -->
+            <Button Command="{Binding MoviesCommand}">
+                <StackPanel>
+                    <Image Source="{Binding MoviesButtonIcon}" />
+                    <TextBlock Text="{Binding MoviesButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <!-- Tickets Button -->
+            <Button Command="{Binding TicketsCommand}">
+                <StackPanel>
+                    <Image Source="{Binding TicketsButtonIcon}" />
+                    <TextBlock Text="{Binding TicketsButtonText}" />
+                </StackPanel>
+            </Button>
+
+            <!-- Users Button -->
+            <Button Command="{Binding UsersCommand}">
+                <StackPanel>
+                    <Image Source="{Binding UsersButtonIcon}" />
+                    <TextBlock Text="{Binding UsersButtonText}" />
+                </StackPanel>
+            </Button>
+        </ToolBar>
+
+        <Separator BorderBrush="{StaticResource Brush-Vintage-Black}"
+                   BorderThickness="{StaticResource Border-Thickness-Normal}"
+                   Margin="{StaticResource Margin-None}" />
+    </StackPanel>
+</UserControl>

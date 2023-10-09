@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="C868.Capstone.Core.Views.Content.ShowTimes.ShowTimesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:C868.Capstone.Core.Views.Controls"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="{StaticResource Brush-Vintage-White}">
+
+    <Grid>
+        <DockPanel>
+            <!-- Movie Panels -->
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- Movie List -->
+                <GroupBox Grid.Column="0"
+                          Height="{Binding ElementName=MovieDetails, Path=ActualHeight}"
+                          Margin="{StaticResource Margin-Stack-Bottom}">
+                    <GroupBox.Header>
+                        <TextBlock Text="Movies"
+                                   Margin="{StaticResource Margin-None}"/>
+                    </GroupBox.Header>
+                    
+                    <ListView VerticalAlignment="Bottom"
+                              ItemsSource="{Binding Movies}"
+                              SelectedItem="{Binding SelectedMovie}"
+                              ScrollViewer.VerticalScrollBarVisibility="Auto"
+                              DisplayMemberPath="Name"
+                              Margin="{StaticResource Margin-Normal}" />
+
+                </GroupBox>
+
+                <!-- Movie Details -->
+                <GroupBox x:Name="MovieDetails" Grid.Column="1"
+                          Margin="{StaticResource Margin-Stack-Bottom}">
+                    <GroupBox.Header>
+                        <TextBlock Text="Movie Details"
+                                   Margin="{StaticResource Margin-None}" />
+                    </GroupBox.Header>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Name -->
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                   Text="Name: "
+                                   Margin="{StaticResource Margin-Stack-Top}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                                   Text="{Binding SelectedMovie.Name}"
+                                   Margin="{StaticResource Margin-Stack-Top}" />
+
+                        <!-- Rating -->
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                                   Text="Rating: "
+                                   Margin="{StaticResource Margin-Stack-Middle}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                                   Text="{Binding SelectedMovie.Rating}"
+                                   Margin="{StaticResource Margin-Stack-Middle}" />
+
+                        <!-- Run Time -->
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                                   Text="Run Time: "
+                                   Margin="{StaticResource Margin-Stack-Bottom}" />
+                        <TextBlock Grid.Row="2" Grid.Column="1"
+                                   Text="{Binding SelectedMovie.RunTime}"
+                                   Margin="{StaticResource Margin-Stack-Bottom}" />
+                    </Grid>
+                </GroupBox>
+                
+                <!-- Show Time Editor -->
+                <GroupBox Grid.Column="2"
+                          BorderBrush="{StaticResource Brush-Vintage-Black}"
+                          BorderThickness="{StaticResource Border-Thickness-Normal}"
+                          Margin="{StaticResource Margin-Stack-Bottom}">
+                    <GroupBox.Header>
+                        <TextBlock Text="Show Time"
+                                   Margin="{StaticResource Margin-None}" />
+                    </GroupBox.Header>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Editor Fields -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1.5*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Auditorium -->
+                            <TextBlock Grid.Row="0" Grid.Column="0"
+                                       Text="Auditorium: "
+                                       Margin="{StaticResource Margin-Stack-Top}"/>
+                            <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                                      ItemsSource="{Binding Auditoriums}"
+                                      SelectedItem="{Binding SelectedAuditorium}"
+                                      DisplayMemberPath="Name"
+                                      IsSynchronizedWithCurrentItem="True"
+                                      Margin="{StaticResource Margin-Stack-Top}" />
+
+                            <!-- Auditorium Error Message -->
+                            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
+                                       Style="{DynamicResource TextBlock-Error}"
+                                       Text="{Binding AuditoriumError}"
+                                       Margin="{StaticResource Margin-Stack-Bottom}" />
+
+                            <!-- Start Time -->
+                            <TextBlock Grid.Row="2" Grid.Column="0"
+                                       Text="Start Time: "
+                                       Margin="{StaticResource Margin-Stack-Top}" />
+                            <xctk:TimePicker Grid.Row="2" Grid.Column="1"
+                                             Value="{Binding SelectedShowTime.StartTime}"
+                                             TimeInterval="00:05:00"
+                                             Margin="{StaticResource Margin-Stack-Top}" />
+
+                            <!-- Start Time Error -->
+                            <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                       Style="{DynamicResource TextBlock-Error}"
+                                       Text="{Binding StartTimeError}"
+                                       Margin="{StaticResource Margin-Stack-Bottom}" />
+
+                            <!-- End Time -->
+                            <TextBlock Grid.Row="2" Grid.Column="2"
+                                       Text="End Time: "
+                                       Margin="{StaticResource Margin-Stack-Top}" />
+                            <TextBlock Grid.Row="2" Grid.Column="3"
+                                       Text="{Binding SelectedShowTime.EndTime, Mode=OneWay, StringFormat=t}"
+                                       Margin="{StaticResource Margin-Stack-Top}" />
+
+                        </Grid>
+
+                        <Separator Grid.Row="1" />
+
+                        <!-- Buttons -->
+                        <DockPanel Grid.Row="2">
+                            <Button DockPanel.Dock="Right"
+                                    Content="Clear"
+                                    Command="{Binding ClearCommand}" />
+                            <Button DockPanel.Dock="Right"
+                                    Content="Save"
+                                    Command="{Binding SaveCommand, IsAsync=True}" />
+                            <Button Content="Delete"
+                                    Command="{Binding DeleteCommand, IsAsync=True}"
+                                    HorizontalAlignment="Left" />
+                        </DockPanel>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+
+            <!-- Schedule -->
+            <controls:ScheduleViewer DataContext="{Binding ScheduleViewer}" />
+        </DockPanel>
+
+        <controls:LoadingIndicator DataContext="{Binding}" />
+    </Grid>
+</UserControl>
